@@ -1,6 +1,6 @@
 /*-*-c-*- ************************************************************
  * Copyright (C) 2001-2005,  Simon Kagstrom
- * Edited by Dan Li-on 10/01/2016
+ * Edited by Danny Li-on 11/04/2018
  *
  * Filename:      ght_hash_table.h.in
  * Description:   The definitions used in the hash table.
@@ -60,13 +60,6 @@
 #ifndef GHT_HASH_TABLE_H
 #define GHT_HASH_TABLE_H
 
-#if defined(_WIN32) && defined(_KERNEL_MODE)
-#include <ntddk.h>
-#else
-#include <stdint.h>
-#include <stdlib.h>  /* size_t */
-#endif
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -84,13 +77,7 @@ extern "C" {
 #define FALSE 0
 #endif
 
-/** unsigned 32 bit integer. */
-#if defined(_WIN32) && defined(_KERNEL_MODE)
-typedef UINT32 ght_uint32_t;
-#else
-typedef uint32_t ght_uint32_t;
-#endif
-
+typedef unsigned __int32 ght_uint32_t;
 
 /**
  * The structure for hash keys. You should not care about this
@@ -155,7 +142,7 @@ typedef ght_uint32_t (*ght_fn_hash_t)(ght_hash_key_t *p_key);
  * @return a pointer to the allocated region, or NULL if the
  *         allocation failed.
  */
-typedef void *(*ght_fn_alloc_t)(size_t size);
+typedef void *(*ght_fn_alloc_t)(unsigned __int64 size);
 
 /**
  * Definition of the deallocation function pointers. This is simply the
@@ -217,7 +204,10 @@ typedef struct
  *
  * @return a pointer to the hash table or NULL upon error.
  */
-ght_hash_table_t *ght_create(unsigned int i_size);
+ght_hash_table_t *ght_create(unsigned int i_size,
+	ght_fn_alloc_t fn_alloc,
+	ght_fn_free_t fn_free,
+	ght_fn_hash_t fn_hash);
 
 /**
  * Set the allocation/freeing functions to use for a hash table. The

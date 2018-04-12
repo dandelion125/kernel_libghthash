@@ -1,7 +1,7 @@
 /*********************************************************************
  *
  * Copyright (C) 2001-2002,  Simon Kagstrom
- * Edited by Dan Li-on 10/01/2016
+ * Edited by Danny Li-on 11/04/2018
  *
  * Filename:      hash_functions.c
  * Description:   Hash functions
@@ -24,7 +24,6 @@
  * $Id: hash_functions.c 2174 2005-03-18 07:00:30Z ska $
  *
  ********************************************************************/
-#include "DebugMacros.h"
 
 #include "ght_hash_table.h"
 
@@ -75,7 +74,7 @@ ght_uint32_t ght_one_at_a_time_hash(ght_hash_key_t *p_key)
   ght_uint32_t i_hash=0;
   unsigned int i;
 
-  DEBUG_ASSERT(p_key);
+  // DEBUG_ASSERT(p_key);
 
   for (i=0; i<p_key->i_size; ++i)
     {
@@ -99,7 +98,7 @@ ght_uint32_t ght_crc_hash(ght_hash_key_t *p_key)
   unsigned char *p, *p_end;
   ght_uint32_t  crc;
 
-  DEBUG_ASSERT(p_key);
+  // DEBUG_ASSERT(p_key);
 
   crc = 0xffffffff;       /* preload shift register, per CRC-32 spec */
   p = (unsigned char *)p_key->p_key;
@@ -115,7 +114,7 @@ ght_uint32_t ght_rotating_hash(ght_hash_key_t *p_key)
   ght_uint32_t i_hash=0;
   unsigned int i;
 
-  DEBUG_ASSERT(p_key);
+  // DEBUG_ASSERT(p_key);
 
   for (i=0; i<p_key->i_size; ++i)
     {

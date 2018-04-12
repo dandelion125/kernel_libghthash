@@ -48,3 +48,9 @@ lib/*
 /TestDriver/Release/Test.inf
 /TestDriver/x64/Debug/Test.inf
 /TestDriver/x64/Release/Test.inf
+*.opendb
+*.db
+*.ilk
+*.iobj
+*.ipdb
+*.idb

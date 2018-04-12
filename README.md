@@ -1,6 +1,7 @@
-# kernel_libghthash
-Windows Kernel adaptation of libghthash, kudos to Simon Kagstrom for making this awesome library.
-All I did was port this library for usage in the Windows Kernel.
+# standalone_libghthash
+Standalone libghthash for use in embedded systems.
+All credit goes to Simon Kagstrom for making this library.
+All I did was make a standalone version of it.
 
 See the original library at: https://github.com/SimonKagstrom/libghthash
 
@@ -14,4 +15,4 @@ USAGE
 To use the library, add
   #include <ght_hash_table.h>
 
-to your source-file and add kernel_libghthash.lib to your project
+to your source-file and add libghthash.lib to your project

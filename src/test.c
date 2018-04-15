@@ -76,6 +76,8 @@ void test_Simple(void)
 		"blabla");
 	assert(NULL != p_he);
 
+	assert(*p_data == *p_he);
+
 	/* Remove the hash table */
 	ght_finalize(p_table);
 }

@@ -37,16 +37,16 @@
 
 // We define these intrinsic functions ourselves to so we can remove the 
 // standard library dependency
-int __cdecl memcmp(const void *s1,
+static int __cdecl memcmp(const void *s1,
 	const void *s2,
 	unsigned __int64 n);
 
-void * __cdecl memcpy(
+static void * __cdecl memcpy(
 	void* pvDst,
 	void const* pvSrc,
 	unsigned __int64 cbSize);
 
-void * __cdecl memset(
+static void * __cdecl memset(
 	void* pvDst,
 	int iValue,
 	unsigned __int64 cbSize);
@@ -55,7 +55,7 @@ void * __cdecl memset(
 #pragma function(memcpy)
 #pragma function(memset)
 
-int __cdecl memcmp(const void *s1,
+static int __cdecl memcmp(const void *s1,
 	const void *s2,
 	unsigned __int64 n)
 {
@@ -75,7 +75,7 @@ int __cdecl memcmp(const void *s1,
 	return 0;
 }
 
-void * __cdecl memcpy(void* pvDst,
+static void * __cdecl memcpy(void* pvDst,
 	void const* pvSrc,
 	unsigned __int64 cbSize)
 {
@@ -110,7 +110,7 @@ void * __cdecl memcpy(void* pvDst,
 	return pvDst;
 }
 
-void * __cdecl memset(void* pvDst,
+static void * __cdecl memset(void* pvDst,
 	int iValue,
 	unsigned __int64 cbSize)
 {

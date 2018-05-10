@@ -205,9 +205,9 @@ typedef struct
  * @return a pointer to the hash table or NULL upon error.
  */
 ght_hash_table_t *ght_create(unsigned int i_size,
-	ght_fn_alloc_t fn_alloc,
-	ght_fn_free_t fn_free,
-	ght_fn_hash_t fn_hash);
+    ght_fn_alloc_t fn_alloc,
+    ght_fn_free_t fn_free,
+    ght_fn_hash_t fn_hash);
 
 /**
  * Set the allocation/freeing functions to use for a hash table. The
@@ -354,8 +354,8 @@ unsigned int ght_table_size(ght_hash_table_t *p_ht);
  * @return 0 if the element could be inserted, -1 otherwise.
  */
 int ght_insert(ght_hash_table_t *p_ht,
-	       void *p_entry_data,
-	       unsigned int i_key_size, const void *p_key_data);
+           void *p_entry_data,
+           unsigned int i_key_size, const void *p_key_data);
 
 /**
  * Replace an entry in the hash table. This function will return an
@@ -371,8 +371,8 @@ int ght_insert(ght_hash_table_t *p_ht,
  * @return a pointer to the <I>old</I> value or NULL if the operation failed.
  */
 void *ght_replace(ght_hash_table_t *p_ht,
-		  void *p_entry_data,
-		  unsigned int i_key_size, const void *p_key_data);
+          void *p_entry_data,
+          unsigned int i_key_size, const void *p_key_data);
 
 
 /**
@@ -386,7 +386,7 @@ void *ght_replace(ght_hash_table_t *p_ht,
  * @return a pointer to the found entry or NULL if no entry could be found.
  */
 void *ght_get(ght_hash_table_t *p_ht,
-	      unsigned int i_key_size, const void *p_key_data);
+          unsigned int i_key_size, const void *p_key_data);
 
 /**
  * Remove an entry from the hash table. The entry is removed from the
@@ -399,7 +399,7 @@ void *ght_get(ght_hash_table_t *p_ht,
  * @return a pointer to the removed entry or NULL if the entry could be found.
  */
 void *ght_remove(ght_hash_table_t *p_ht,
-		 unsigned int i_key_size, const void *p_key_data);
+         unsigned int i_key_size, const void *p_key_data);
 
 /**
  * Return the first entry in the hash table. This function should be
